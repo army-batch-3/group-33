@@ -13,6 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [
+    BootstrapController::class,
+    'index'
+])->name('index');
+
+
+// for DASHBOARD
+Route::get('/dashboard',[
+    BootstrapController::class,
+    'dashboard'
+])->name('dashboard');
+
+// for USERS
+// 
