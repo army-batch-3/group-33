@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,17 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [
-    BootstrapController::class,
-    'index'
-])->name('index');
+Route::get('/', function () {
+    return view('auth.login');
+});
 
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');
 
-// for DASHBOARD
-Route::get('/dashboard',[
-    BootstrapController::class,
-    'dashboard'
-])->name('dashboard');
-
-// for USERS
-// 
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('/dash', [DashboardController::class, 'index']);
+    Route::get('/sample', [DashboardController::class, 'sample_blank']);
+});
