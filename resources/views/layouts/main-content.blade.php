@@ -1,95 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    @include("components.header")
-    @yield("content-css")
+	@include('layouts.partials.head')
+	@yield('content_css')
 </head>
+@yield('modal')
+<body>
+<div class="main-menu">
+		@include('layouts.partials.header')
+	<!-- /.header -->
+	<div class="content">
 
-<body id="page-top">
+		@include('layouts.partials.nav')
+		<!-- /.navigation -->
+	</div>
+	<!-- /.content -->
+</div>
+<!-- /.main-menu -->
 
-    <!-- Page Wrapper -->
-    <div id="wrapper">
+<div class="fixed-navbar">
+	@include('layouts.partials.fixnav')
+	<!-- /.pull-right -->
+</div>
+<!-- /.fixed-navbar -->
+@include('layouts.partials.notification')
+<!-- /#notification-popup -->
+@include('layouts.partials.messages')
+<!-- /#message-popup -->
+<!-- @include('layouts.partials.gear_switch') -->
+<!-- #color-switcher -->
 
-        <!-- Sidebar -->
-        @include("components.sidebar")
-        <!-- End of Sidebar -->
+<div id="wrapper">
+	<div class="main-content">
+		<div class="row small-spacing">
 
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
+			@yield('content')
 
-            <!-- Main Content -->
-            <div id="content">
-
-                <!-- Topbar -->
-                @include("components.topbar")
-                <!-- End of Topbar -->
-
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-                    @yield('content')
-
-
-                </div>
-                <!-- /.container-fluid -->
-
-            </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            @include("components.footer")
-            <!-- End of Footer -->
-
-        </div>
-        <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-
-
-        <!-- Logout Modal-->
-        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" href="login.html">Logout</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Bootstrap core JavaScript-->
-        <script src="{{ URL::asset('admin/vendor/jquery/jquery.min.js') }}"></script>
-        <script src="{{ URL::asset('admin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
-        <!-- Core plugin JavaScript-->
-        <script src="{{ URL::asset('admin/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-
-        <!-- Custom scripts for all pages-->
-        <script src="{{ URL::asset('admin/js/sb-admin-2.min.js') }}"></script>
-
-        <!-- Page level plugins -->
-        <script src="{{ URL::asset('admin/vendor/datatables/jquery.dataTables.min.js') }}"></script>
-        <script src="{{ URL::asset('admin/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
-
-        <!-- Page level custom scripts -->
-        <script src="{{ URL::asset('admin/js/demo/datatables-demo.js') }}"></script>
-
-        @yield("content-script")
+		</div>
+		<!-- /.row -->
+		@include('layouts.partials.footer')
+	</div>
+	<!-- /.main-content -->
+</div><!--/#wrapper -->
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		<script src="assets/script/html5shiv.min.js"></script>
+		<script src="assets/script/respond.min.js"></script>
+	<![endif]-->
+	<!--
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	@include('layouts.partials.footer-scripts')
+	@yield('content_script')
+	@stack('scripts')
 
 </body>
-
 </html>
