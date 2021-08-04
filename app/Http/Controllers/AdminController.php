@@ -215,11 +215,13 @@ class AdminController extends Controller
     {
       return $role_store->process(request());
     }
+
     public function getRoles()
     {
         $emp = DB::select("select id, name, created_at, updated_at from roles");
         return Datatables::of($emp)->make(true);
     }
+
     public function getLogin()
     {
         return Datatables::eloquent(User::query())->make(true);

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\DashboardController;
 
 /*
@@ -54,6 +55,14 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::post('Roles-Get', [AdminController::class, 'getRoles'])->name('getRoles');
         Route::post('User-Get', [AdminController::class, 'getLogin'])->name('getLogin');
     });
+
+
+    Route::post('Supplier-Store', [SupplierController::class, 'storeSupplier'])->name('storeSupplier');
+    Route::post('Supplier-Get', [SupplierController::class, 'getSupplier'])->name('getSupplier');
+    // Route::get('/Suppliers', function () { return view('suppliers'); })->name('supplier');
+    Route::get('/Suppliers', [SupplierController::class, 'supplier'])->name('supplier');
+
+
     Route::post('Info-Store', [AdminController::class, 'infoUpdate'])->name('infoUpdate');
     Route::post('All-PersonalInfo-get', [AdminController::class, 'getAllPersonal'])->name('getAllPersonal');
 });
