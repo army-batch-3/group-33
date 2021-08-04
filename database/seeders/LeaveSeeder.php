@@ -13,6 +13,6 @@ class LeaveSeeder extends Seeder
      */
     public function run()
     {
-        //
+        
     }
 }

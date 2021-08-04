@@ -3,7 +3,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-				<h4 class="modal-title" id="modal_title">Add/Edit/View Personal Information</h4>
+				<h4 class="modal-title" id="modal_title">Add/Edit/View Users Information</h4>
 			</div>
 			<div class="modal-body">
                 <input type="hidden" class="form-control"  id="table_id_attr" >

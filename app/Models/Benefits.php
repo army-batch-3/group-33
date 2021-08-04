@@ -12,7 +12,6 @@ class Benefits extends Model
     protected $table = 'pa_benefits';
     public $timestamps  = false; //prevent/enable Eloquent to always find column update_at column even when its not present
     protected $fillable = [
-        'id',
         'sss',
         'philhealth',
         'pagibig',
