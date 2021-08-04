@@ -18,9 +18,29 @@
 				</li>
 				{{-- @endcan --}}
 
-	
 				<li id="tabs2">
-					<a class="waves-effect" href="{{ route('manageUser') }}"><i class="menu-icon fa fa-arrow-circle-down"></i><span>Manage Employees Info</span></a>
+					<a class="waves-effect" href="{{ route('manageUser') }}"><i class="menu-icon fa fa-arrow-circle-down"></i><span>Users</span></a>
+				</li>
+				<li id="tabs2">
+					<a class="waves-effect" href="{{ route('manageUser') }}"><i class="menu-icon fa fa-arrow-circle-down"></i><span>Transportations</span></a>
+				</li>
+				<li id="tabs2">
+					<a class="waves-effect" href="{{ route('manageUser') }}"><i class="menu-icon fa fa-arrow-circle-down"></i><span>Suppliers</span></a>
+				</li>
+				<li id="tabs2">
+					<a class="waves-effect" href="{{ route('manageUser') }}"><i class="menu-icon fa fa-arrow-circle-down"></i><span>Warehouses</span></a>
+				</li>
+				<li id="tabs2">
+					<a class="waves-effect" href="{{ route('manageUser') }}"><i class="menu-icon fa fa-arrow-circle-down"></i><span>Assets</span></a>
+				</li>
+				<li id="tabs2">
+					<a class="waves-effect" href="{{ route('manageUser') }}"><i class="menu-icon fa fa-arrow-circle-down"></i><span>Employees</span></a>
+				</li>
+				<li id="tabs2">
+					<a class="waves-effect" href="{{ route('manageUser') }}"><i class="menu-icon fa fa-arrow-circle-down"></i><span>Reports</span></a>
+				</li>
+				<li id="tabs2">
+					<a class="waves-effect" href="{{ route('manageUser') }}"><i class="menu-icon fa fa-arrow-circle-down"></i><span>Fleet</span></a>
 				</li>
 	
 
