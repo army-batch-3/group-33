@@ -21,8 +21,8 @@ class CreatePaPersonalinfoTable extends Migration
             $table->string('given_name');
             $table->string('middle_name');
             $table->string('last_name');
-            $table->string('company');
-            $table->integer('job_title');
+            $table->string('company')->nullable();
+            $table->integer('job_title')->nullable();
             $table->string('contact');
             $table->string('country');
             $table->string('city');

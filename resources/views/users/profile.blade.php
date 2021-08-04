@@ -83,7 +83,7 @@ dt { margin-top: 1em; }
                                             <div class="row">
                                                 <dl>
                                                     <div class="col-xs-5"><label>Middle Name:</label></div>
-                                                    <dd data-editor-field="middle_name" id="middle_name" class="col-xs-7">Test</dd>
+                                                    <dd data-editor-field="middle_name" id="middle_name" class="col-xs-7"></dd>
                                                 </dl>
                                             </div>
                                             <!-- /.row -->
@@ -93,7 +93,7 @@ dt { margin-top: 1em; }
                                             <div class="row">
                                                 <dl>
                                                     <div class="col-xs-5"><label>Last Name:</label></div>
-                                                    <dd data-editor-field="last_name" id="last_name" class="col-xs-7">Test</dd>
+                                                    <dd data-editor-field="last_name" id="last_name" class="col-xs-7"></dd>
                                                 </dl>
                                             </div>
                                             <!-- /.row -->
@@ -103,7 +103,7 @@ dt { margin-top: 1em; }
                                             <div class="row">
                                                 <dl>
                                                     <div class="col-xs-5"><label>Email:</label></div>
-                                                    <dd data-editor-field="email" id="email" class="col-xs-7">Test</dd>
+                                                    <dd data-editor-field="email" id="email" class="col-xs-7"></dd>
                                                 </dl>
                                             </div>
                                             <!-- /.row -->
@@ -113,7 +113,7 @@ dt { margin-top: 1em; }
                                             <div class="row">
                                                 <dl>
                                                     <div class="col-xs-5"><label>City:</label></div>
-                                                    <dd data-editor-field="city" id="city" class="col-xs-7">Test</dd>
+                                                    <dd data-editor-field="city" id="city" class="col-xs-7"></dd>
                                                 </dl>
                                             </div>
                                             <!-- /.row -->
@@ -123,7 +123,7 @@ dt { margin-top: 1em; }
                                             <div class="row">
                                                 <dl>
                                                     <div class="col-xs-5"><label>Country:</label></div>
-                                                    <dd data-editor-field="country" id="country" class="col-xs-7">Test</dd>
+                                                    <dd data-editor-field="country" id="country" class="col-xs-7"></dd>
                                                 </dl>
                                             </div>
                                             <!-- /.row -->
@@ -133,7 +133,7 @@ dt { margin-top: 1em; }
                                             <div class="row">
                                                 <dl>
                                                     <div class="col-xs-5"><label>Address:</label></div>
-                                                    <dd data-editor-field="address" id="address" class="col-xs-7">Test</dd>
+                                                    <dd data-editor-field="address" id="address" class="col-xs-7"></dd>
                                                 </dl>
                                             </div>
                                             <!-- /.row -->
@@ -143,7 +143,7 @@ dt { margin-top: 1em; }
                                             <div class="row">
                                                 <dl>
                                                     <div class="col-xs-5"><label>Contact:</label></div>
-                                                    <dd data-editor-field="contact" id="contact" class="col-xs-7">Test</dd>
+                                                    <dd data-editor-field="contact" id="contact" class="col-xs-7"></dd>
                                                 </dl>
                                             </div>
                                             <!-- /.row -->
@@ -176,7 +176,7 @@ dt { margin-top: 1em; }
                                         <div class="row">
                                             <dl>
                                                 <div class="col-xs-5"><label>Pagibig No:</label></div>
-                                                <dd data-editor-field="pagibig" id="pagibig" class="col-xs-7">Test</dd>
+                                                <dd data-editor-field="pagibig" id="pagibig" class="col-xs-7"></dd>
                                             </dl>
                                         </div>
                                         <!-- /.row -->
@@ -186,7 +186,7 @@ dt { margin-top: 1em; }
                                         <div class="row">
                                             <dl>
                                                 <div class="col-xs-5"><label>PhilHealth No:</label></div>
-                                                <dd data-editor-field="philhealth" id="philhealth" class="col-xs-7">Test</dd>
+                                                <dd data-editor-field="philhealth" id="philhealth" class="col-xs-7"></dd>
                                             </dl>
                                         </div>
                                         <!-- /.row -->
@@ -196,7 +196,7 @@ dt { margin-top: 1em; }
                                         <div class="row">
                                             <dl>
                                                 <div class="col-xs-5"><label>PhilHealth Savings No:</label></div>
-                                                <dd data-editor-field="savings" id="savings" class="col-xs-7">Test</dd>
+                                                <dd data-editor-field="savings" id="savings" class="col-xs-7"></dd>
                                             </dl>
                                         </div>
                                         <!-- /.row -->
@@ -206,7 +206,7 @@ dt { margin-top: 1em; }
                                         <div class="row">
                                             <dl>
                                                 <div class="col-xs-5"><label>Tin No:</label></div>
-                                                <dd data-editor-field="tin" id="tin" class="col-xs-7">Test</dd>
+                                                <dd data-editor-field="tin" id="tin" class="col-xs-7"></dd>
                                             </dl>
                                         </div>
                                         <!-- /.row -->
