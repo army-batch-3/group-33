@@ -39,7 +39,6 @@ div.DTE_Bubble {
 <script src="{{ URL::asset('editor/DataTables-1.10.20/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ URL::asset('editor/Responsive-2.2.3/js/dataTables.responsive.min.js') }}"></script>
 <script src="{{ URL::asset('editor/Editor-1.9.2/js/dataTables.editor.min.js') }}"></script>
-<script src="{{ URL::asset('vendor/datatables/buttons.server-side.js') }}"></script>
 <script src="{{ URL::asset('editor/Buttons-1.6.1/js/dataTables.buttons.min.js') }}"></script>
 <script src="{{ URL::asset('editor/KeyTable-2.5.1/js/dataTables.keyTable.min.js ') }}"></script> <!--  for tab editing -->
 <script src="{{ URL::asset('editor/Select-1.3.1/js/dataTables.select.min.js') }}"></script>
@@ -314,9 +313,9 @@ function additional_Info(table_id)
 
     $('#personalinfo-modal').modal('show');
 }
-
+var editor;
 $(document).ready(function () {
-   var editor = new $.fn.dataTable.Editor( {
+   editor = new $.fn.dataTable.Editor( {
         ajax: "{{route('storePersonalinfo')}}",
         table: "#basicinfo_table",
         idSrc:  'id',
@@ -405,10 +404,7 @@ $(document).ready(function () {
         ],
         select: true,
         buttons: [
-            { extend: "create", editor: editor },
-            @can('Edit Employee')
             { extend: "edit",   editor: editor },
-            @endcan
             { extend: "remove", editor: editor },
             {
                 extend: "selectedSingle",

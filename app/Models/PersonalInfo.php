@@ -11,13 +11,12 @@ class PersonalInfo extends Model
     protected $table="pa_personalinfo";
     public $timestamps  = false;
     protected $fillable = [
-        'user_id',	
 	    'email',
 	    'given_name',
 	    'middle_name',
 	    'last_name',
 	    'company',
-	    'job_title',	
+	    'job_title',
 	    'contact',
 	    'country',
 	    'city',
