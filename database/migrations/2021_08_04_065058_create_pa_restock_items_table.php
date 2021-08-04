@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRequisitionItemsTable extends Migration
+class CreatePaRestockItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CreateRequisitionItemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('requisition_items', function (Blueprint $table) {
+        Schema::create('pa_restock_items', function (Blueprint $table) {
             $table->id();
             $table->integer('quantity');
 
-            $table->unsignedBigInteger('requisition_id');
+            $table->unsignedBigInteger('restock_id');
             $table->unsignedBigInteger('assets_id');
 
-            $table->foreign('requisition_id')->references('id')->on('employees');
-            $table->foreign('assets_id')->references('id')->on('assets');
+            $table->foreign('restock_id')->references('id')->on('pa_restock_requests');
+            $table->foreign('assets_id')->references('id')->on('pa_assets');
             $table->timestamps();
         });
     }
@@ -33,6 +33,6 @@ class CreateRequisitionItemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('requisition_items');
+        Schema::dropIfExists('pa_restock_items');
     }
 }

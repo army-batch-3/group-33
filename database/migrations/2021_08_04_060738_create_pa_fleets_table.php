@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFleetsTable extends Migration
+class CreatePaFleetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateFleetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('fleets', function (Blueprint $table) {
+        Schema::create('pa_fleets', function (Blueprint $table) {
             $table->id();
             $table->integer('request_id');
             $table->enum('type_of_request', [
@@ -27,7 +27,7 @@ class CreateFleetsTable extends Migration
             ]);
             $table->unsignedBigInteger('driver_id');
 
-            $table->foreign('driver_id')->references('id')->on('drivers');
+            $table->foreign('driver_id')->references('id')->on('pa_drivers');
             $table->timestamps();
         });
     }
@@ -39,6 +39,6 @@ class CreateFleetsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fleets');
+        Schema::dropIfExists('pa_fleets');
     }
 }
