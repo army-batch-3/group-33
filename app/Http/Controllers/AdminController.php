@@ -18,7 +18,7 @@ class AdminController extends Controller
 {
     use PersonalInfo;
     public function manageUser(){
-        dd(User::with('permissions')->get());
+      //   dd(User::with('permissions')->get());
         return view('users.manage-emp');
      }
      public function storeBenefits(Request $request){

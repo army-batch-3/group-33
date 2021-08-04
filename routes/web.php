@@ -28,7 +28,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('dashboard', [HomeController::class,'dashboard_lists'])->name('dashboard_lists');
 
-    Route::get('/manage', [AdminController::class, 'manageUser']);
+    Route::get('/Manage-User', [AdminController::class, 'manageUser'])->name('manageUser');
     Route::post('Personal-Benefits-Store', [AdminController::class,'storeBenefits'])->name('storeBenefits');
     Route::post('Personal-Employment-Store', [AdminController::class,'storeEmployment'])->name('storeEmployment');
     Route::post('Personal-Reference-Store', [AdminController::class,'storeReference'])->name('storeReference');
