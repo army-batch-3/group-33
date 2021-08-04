@@ -13,7 +13,7 @@
 		<div class="ico-item fa fa-arrows-alt js__full_screen"></div>		
          <a class="ico-item fa fa-power-off js__logout" href="{{ route('logout') }}"
             onclick="event.preventDefault();
-                          document.getElementById('logout-form').submit();">
+			document.getElementById('logout-form').submit();">
          </a>
 
          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
