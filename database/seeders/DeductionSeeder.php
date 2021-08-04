@@ -13,6 +13,6 @@ class DeductionSeeder extends Seeder
      */
     public function run()
     {
-        //
+        
     }
 }

@@ -25,7 +25,7 @@ div.DTE_Bubble {
    <div class="container" style="width:100%">
       <div class="col-xs-12">
           <div class="box-content">
-                  <h1>Manage Employees Information</h1>
+                  <h1>Manage Users</h1>
                   <table id="basicinfo_table" class="display compact responsive nowrap"></table>
           </div>
       </div>
