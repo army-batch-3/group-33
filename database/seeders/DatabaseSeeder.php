@@ -22,7 +22,8 @@ class DatabaseSeeder extends Seeder
             PersonalinfoSeeder::class,
             ModelHasRolesSeeder::class,
             EmploymentSeeder::class,
-            ReferenceSeeder::class
+            ReferenceSeeder::class,
+            BenefitSeeder::class
         ]);
     }
 }
