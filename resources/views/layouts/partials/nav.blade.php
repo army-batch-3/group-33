@@ -34,7 +34,7 @@
 					<a class="waves-effect" href="{{ route('manageUser') }}"><i class="menu-icon fa fa-arrow-circle-down"></i><span>Transportations</span></a>
 				</li>
 				<li id="tabs2">
-					<a class="waves-effect" href="{{ route('manageUser') }}"><i class="menu-icon fa fa-arrow-circle-down"></i><span>Suppliers</span></a>
+					<a class="waves-effect" href="{{ route('supplier') }}"><i class="menu-icon fa fa-arrow-circle-down"></i><span>Suppliers</span></a>
 				</li>
 				<li id="tabs2">
 					<a class="waves-effect" href="{{ route('manageUser') }}"><i class="menu-icon fa fa-arrow-circle-down"></i><span>Warehouses</span></a>

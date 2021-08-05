@@ -43,3 +43,10 @@ div.clear {
     background-color: #a72762!important;
 }
 </style>
+
+<link rel="stylesheet" href="{{ URL::asset('editor/DataTables-1.10.20/css/jquery.dataTables.min.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('editor/Responsive-2.2.3/css/responsive.dataTables.min.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('editor/Buttons-1.6.1/css/buttons.dataTables.min.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('editor/Editor-1.9.2/css/editor.dataTables.min.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('editor/Select-1.3.1/css/select.dataTables.min.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('editor/DataTables-1.10.20/css/dataTables.bootstrap4.min.css') }}">
