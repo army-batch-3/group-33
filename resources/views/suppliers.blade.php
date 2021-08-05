@@ -25,6 +25,7 @@
     <script src="{{ URL::asset('editor/DataTables-1.10.20/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ URL::asset('editor/Responsive-2.2.3/js/dataTables.responsive.min.js') }}"></script>
     <script src="{{ URL::asset('editor/Editor-1.9.2/js/dataTables.editor.min.js') }}"></script>
+    {{-- <script src="{{ URL::asset('vendor/datatables/buttons.server-side.js') }}"></script> --}}
     <script src="{{ URL::asset('editor/Buttons-1.6.1/js/dataTables.buttons.min.js') }}"></script>
     <script src="{{ URL::asset('editor/KeyTable-2.5.1/js/dataTables.keyTable.min.js ') }}"></script>
     <script src="{{ URL::asset('editor/Select-1.3.1/js/dataTables.select.min.js') }}"></script>
@@ -36,36 +37,46 @@
         });
 
         $(document).ready(function() {
-            // var editor = new $.fn.dataTable.Editor({
-            //     ajax: "{{ route('storeSupplier') }}",
-            //     table: "#suppliers-table",
-            //     idSrc: 'id',
-            //     fields: [{
-            //         label: "id",
-            //         name: "id",
-            //         type: 'hidden'
-            //     }, {
-            //         label: "Name",
-            //         name: "name",
-            //         type: 'text'
-            //     }, {
-            //         label: "Email",
-            //         name: "email",
-            //         type: 'text'
-            //     }, {
-            //         label: "Contact Number",
-            //         name: "contact_number",
-            //         type: 'number'
-            //     }, {
-            //         label: "Contact Person",
-            //         name: "contact_person",
-            //         type: 'text'
-            //     }, {
-            //         label: "Address",
-            //         name: "address",
-            //         type: 'text'
-            //     } ]
-            // });
+            var editor = new $.fn.dataTable.Editor({
+                ajax: "{{ route('storeSupplier') }}",
+                table: "#suppliers-table",
+                idSrc: 'id',
+                fields: [{
+                    label: "id",
+                    name: "id",
+                    type: 'hidden'
+                }, {
+                    label: "Name",
+                    name: "name",
+                    type: 'text'
+                }, {
+                    label: "Email",
+                    name: "email",
+                    type: 'text'
+                }, {
+                    label: "Contact Number",
+                    name: "contact_number",
+                    type: 'text'
+                }, {
+                    label: "Contact Person",
+                    name: "contact_person",
+                    type: 'text'
+                }, {
+                    label: "Address",
+                    name: "address",
+                    type: 'text'
+                }, {
+                    label: 'Created At:',
+                    name: 'created_at',
+                    type: "hidden",
+                    def:  function () { return moment(new Date()).format("YYYY-MM-DD HH:mm:ss"); }
+                }, {
+                    label: 'Updated At:',
+                    name: 'updated_at',
+                    type: "hidden",
+                    def:  function () { return moment(new Date()).format("YYYY-MM-DD HH:mm:ss"); }
+                } ]
+            });
 
             $('#suppliers-table').DataTable({
                 dom: "<'clear'l>Bfrtip",
@@ -106,20 +117,21 @@
                         title: 'Last Update'
                     }
                 ],
-                select: true
-                // buttons: [{
-                //         extend: "create",
-                //         editor: editor
-                //     },
-                //     {
-                //         extend: "edit",
-                //         editor: editor
-                //     },
-                //     {
-                //         extend: "remove",
-                //         editor: editor
-                //     }
-                // ]
+                select: true,
+                buttons: [
+                    {
+                        extend: "create",
+                        editor: editor
+                    },
+                    {
+                        extend: "edit",
+                        editor: editor
+                    },
+                    {
+                        extend: "remove",
+                        editor: editor
+                    }
+                ]
             });
         });
     </script>
