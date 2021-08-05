@@ -11,10 +11,10 @@
         } else {
             params.visible_columns = null;
         }
-        
+
         return params;
     };
-    
+
     var _getVisibleColumns = function () {
 
         var visible_columns = [];
@@ -85,7 +85,7 @@
         if (url.indexOf('?') > -1) {
             return url + '&' + $.param(params);
         }
-        
+
         return url + '?' + $.param(params);
     };
 
@@ -116,7 +116,7 @@
             _downloadFromUrl(url, params);
         }
     };
-    
+
     DataTable.ext.buttons.postExcelVisibleColumns = {
         className: 'buttons-excel',
 
@@ -171,7 +171,7 @@
             _downloadFromUrl(url, params);
         }
     };
-    
+
     DataTable.ext.buttons.postCsv = {
         className: 'buttons-csv',
 
@@ -254,7 +254,7 @@
         }
     };
 
-    DataTable.ext.buttons.create = {
+    DataTable.ext.buttons.add = {
         className: 'buttons-create',
 
         text: function (dt) {
