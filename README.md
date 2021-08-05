@@ -20,7 +20,7 @@ Run command promp, git bash or terminal on the project folder and execute the fo
 - php artisan make:model [TableName]
 
 ### Create Migration
-- php artisan make:migration CreatePa[TableName]Table (Note: _TableName should have a prefix 'pa' attach to it and should be camelcase_.)
+- php artisan make:migration CreatePa[TableName]Table (Note: _TableName should have a prefix 'pa' attach to it and should be pascalcase_.)
 
 ### Create Seeder
 - php artisan make:seeder [TableName]Seeder
