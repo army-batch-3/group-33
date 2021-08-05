@@ -15,7 +15,7 @@ Run command promp, git bash or terminal on the project folder and execute the fo
 
 ### Create Controller
 - php artisan make:controller [TableName]Controller
--
+
 ### Create Model
 - php artisan make:model [TableName]
 
@@ -27,4 +27,4 @@ Run command promp, git bash or terminal on the project folder and execute the fo
 
 ## Other Commands
 - php artisan optimize (Clear cache for configuration cache and cached, route(s) and files)
-- php artisan permission:cache-reset (If permission is not refelecting when assigning permission to roles)
+- php artisan permission:cache-reset (If permission is not refelecting when assigning permission to roles or directly changing values on the database)
