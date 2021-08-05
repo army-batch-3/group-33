@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -23,7 +22,8 @@ class DatabaseSeeder extends Seeder
             ModelHasRolesSeeder::class,
             EmploymentSeeder::class,
             ReferenceSeeder::class,
-            BenefitSeeder::class
+            BenefitSeeder::class,
+            RoleHasPermissionSeeder::class
         ]);
     }
 }

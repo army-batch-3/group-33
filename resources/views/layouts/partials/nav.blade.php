@@ -17,6 +17,11 @@
 					</ul>
 				</li>
 				{{-- @endcan --}}
+                @can('Manage Employee')
+                <li id="tabs2">
+                    <a class="waves-effect" href="{{ route('manageUser') }}"><i class="menu-icon fa fa-arrow-circle-down"></i><span>Users</span></a>
+                </li>
+                @endcan
 
                 @can('Roles - Permission')
 				<li id="tabs2">
@@ -24,34 +29,47 @@
 				</li>
 				@endcan
 
-                @can('Manage Employee')
-				<li id="tabs2">
-					<a class="waves-effect" href="{{ route('manageUser') }}"><i class="menu-icon fa fa-arrow-circle-down"></i><span>Users</span></a>
-				</li>
-                @endcan
-
+                @can('Manage Transportation')
 				<li id="tabs2">
 					<a class="waves-effect" href="{{ route('manageUser') }}"><i class="menu-icon fa fa-arrow-circle-down"></i><span>Transportations</span></a>
 				</li>
+				@endcan
+
+                @can('Manage Suppliers')
 				<li id="tabs2">
 					<a class="waves-effect" href="{{ route('supplier') }}"><i class="menu-icon fa fa-arrow-circle-down"></i><span>Suppliers</span></a>
 				</li>
+				@endcan
+
+                @can('Manage Warehouses')
 				<li id="tabs2">
 					<a class="waves-effect" href="{{ route('manageUser') }}"><i class="menu-icon fa fa-arrow-circle-down"></i><span>Warehouses</span></a>
 				</li>
+				@endcan
+
+                @can('Manage Assets')
 				<li id="tabs2">
 					<a class="waves-effect" href="{{ route('manageUser') }}"><i class="menu-icon fa fa-arrow-circle-down"></i><span>Assets</span></a>
 				</li>
+				@endcan
+
+                @can('Manage Employee')
 				<li id="tabs2">
 					<a class="waves-effect" href="{{ route('manageUser') }}"><i class="menu-icon fa fa-arrow-circle-down"></i><span>Employees</span></a>
 				</li>
+				@endcan
+
+                @can('Manage Reports')
 				<li id="tabs2">
 					<a class="waves-effect" href="{{ route('manageUser') }}"><i class="menu-icon fa fa-arrow-circle-down"></i><span>Reports</span></a>
 				</li>
+				@endcan
+
+                @can('Manage Fleet')
 				<li id="tabs2">
 					<a class="waves-effect" href="{{ route('manageUser') }}"><i class="menu-icon fa fa-arrow-circle-down"></i><span>Fleet</span></a>
 				</li>
-
+                @endcan
 
 
 

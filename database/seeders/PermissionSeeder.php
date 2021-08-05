@@ -19,15 +19,15 @@ class PermissionSeeder extends Seeder
             'guard_name'=>'web'
         ]);
         Permission::create([
-            'name'=>'Manage Employee',
+            'name'=>'Manage User',
             'guard_name'=>'web'
         ]);
         Permission::create([
-            'name'=>'Edit Employee',
+            'name'=>'Edit User',
             'guard_name'=>'web'
         ]);
         Permission::create([
-            'name'=>'Payroll Settings',
+            'name'=>'Delete Employee',
             'guard_name'=>'web'
         ]);
         Permission::create([
@@ -36,6 +36,50 @@ class PermissionSeeder extends Seeder
         ]);
         Permission::create([
             'name'=>'Assign Roles',
+            'guard_name'=>'web'
+        ]);
+        Permission::create([
+            'name'=>'Assign Permission',
+            'guard_name'=>'web'
+        ]);
+        Permission::create([
+            'name'=>'Add Permission',
+            'guard_name'=>'web'
+        ]);
+        Permission::create([
+            'name'=>'Edit Permission',
+            'guard_name'=>'web'
+        ]);
+        Permission::create([
+            'name'=>'Delete Permission',
+            'guard_name'=>'web'
+        ]);
+        Permission::create([
+            'name'=>'Manage Suppliers',
+            'guard_name'=>'web'
+        ]);
+        Permission::create([
+            'name'=>'Manage Transportation',
+            'guard_name'=>'web'
+        ]);
+        Permission::create([
+            'name'=>'Manage Warehouses',
+            'guard_name'=>'web'
+        ]);
+        Permission::create([
+            'name'=>'Manage Assets',
+            'guard_name'=>'web'
+        ]);
+        Permission::create([
+            'name'=>'Manage Employee',
+            'guard_name'=>'web'
+        ]);
+        Permission::create([
+            'name'=>'Manage Reports',
+            'guard_name'=>'web'
+        ]);
+        Permission::create([
+            'name'=>'Manage Fleet',
             'guard_name'=>'web'
         ]);
     }
