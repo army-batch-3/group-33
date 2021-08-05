@@ -442,26 +442,33 @@
                     }
                 ],
                 select: true,
-                buttons: [{
+                buttons: [
+                    @can('Edit User')
+                        {
                         extend: "edit",
                         editor: editor
-                    },
-                    {
+                        },
+                    @endcan('Edit User')
+                    @can('Delete User')
+                        {
                         extend: "remove",
                         editor: editor
-                    },
-                    {
+                        },
+                    @endcan('Delete User')
+                    @can('Edit User')
+                        {
                         extend: "selectedSingle",
                         text: "Add/Edit Additional Information",
                         className: "text-center",
                         action: function(e, dt, node, config) {
-                            let table_id = basicinfo.row({
-                                selected: true
-                            }).data().id;
-                            $('#table_id_attr').val(table_id);
-                            additional_Info(table_id);
+                        let table_id = basicinfo.row({
+                        selected: true
+                        }).data().id;
+                        $('#table_id_attr').val(table_id);
+                        additional_Info(table_id);
                         }
-                    }
+                        }
+                    @endcan('Edit User')
                 ]
             });
 

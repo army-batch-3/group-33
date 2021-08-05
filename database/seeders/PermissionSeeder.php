@@ -27,6 +27,10 @@ class PermissionSeeder extends Seeder
             'guard_name'=>'web'
         ]);
         Permission::create([
+            'name'=>'Delete User',
+            'guard_name'=>'web'
+        ]);
+        Permission::create([
             'name'=>'Delete Employee',
             'guard_name'=>'web'
         ]);
