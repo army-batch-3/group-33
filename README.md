@@ -7,6 +7,7 @@ Run command promp, git bash or terminal on the project folder and execute the fo
 - npm install
 - copy .env.example .env
 - setup your database connection on the .env file
+- php artisan key:generate
 - php artisan optimize
 - "php artisan migrate --seed" or "php artisan migrate:fresh --seed"
 - "php artisan serve" or "php artisan serve --port=xxxx"
