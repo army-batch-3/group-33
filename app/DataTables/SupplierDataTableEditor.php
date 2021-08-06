@@ -38,11 +38,11 @@ class SupplierDataTableEditor extends DataTablesEditor
     public function editRules(Model $model)
     {
         return [
-            'name' => 'required',
-            'email' => 'required',
-            'contact_number' => 'required',
-            'contact_person' => 'required',
-            'address' => 'required',
+            'name' => 'required|sometimes',
+            'email' => 'required|sometimes',
+            'contact_number' => 'required|sometimes',
+            'contact_person' => 'required|sometimes',
+            'address' => 'required|sometimes',
             'created_at' => 'required|sometimes',
             'updated_at' => 'required|sometimes',
         ];

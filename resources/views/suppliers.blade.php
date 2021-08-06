@@ -17,6 +17,7 @@
             }
         });
 
+
         $(document).ready(function() {
             var editor = new $.fn.dataTable.Editor({
                 ajax: "{{ route('storeSupplier') }}",
@@ -50,19 +51,28 @@
                     label: 'Created At:',
                     name: 'created_at',
                     type: "hidden",
-                    def:  function () { return moment(new Date()).format("YYYY-MM-DD HH:mm:ss"); }
+                    def: function() {
+                        return moment(new Date()).format("YYYY-MM-DD HH:mm:ss");
+                    }
                 }, {
                     label: 'Updated At:',
                     name: 'updated_at',
                     type: "hidden",
-                    def:  function () { return moment(new Date()).format("YYYY-MM-DD HH:mm:ss"); }
-                } ]
+                    def: function() {
+                        return moment(new Date()).format("YYYY-MM-DD HH:mm:ss");
+                    }
+                }]
+            });
+
+
+            $('#suppliers-table').on('click', 'tbody td:not(:first-child)', function(e) {
+                editor.inline(this);
             });
 
             $('#suppliers-table').DataTable({
                 dom: "<'clear'l>Bfrtip",
                 ajax: {
-                    url: "{{route('getSupplier')}}",
+                    url: "{{ route('getSupplier') }}",
                     type: 'post'
                 },
                 columns: [{
@@ -99,8 +109,7 @@
                     }
                 ],
                 select: true,
-                buttons: [
-                    {
+                buttons: [{
                         extend: "create",
                         editor: editor
                     },
