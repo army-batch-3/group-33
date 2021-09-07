@@ -49,7 +49,7 @@
 
                 @can('Manage Assets')
 				<li id="tabs2">
-					<a class="waves-effect" href="{{ route('manageUser') }}"><i class="menu-icon fa fa-bank"></i><span>Assets</span></a>
+					<a class="waves-effect" href="{{ route('assets') }}"><i class="menu-icon fa fa-bank"></i><span>Assets</span></a>
 				</li>
 				@endcan
 
