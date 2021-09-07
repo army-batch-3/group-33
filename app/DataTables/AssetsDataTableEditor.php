@@ -57,4 +57,11 @@ class AssetsDataTableEditor extends DataTablesEditor
     {
         return [];
     }
+
+    public function uploadRules() {
+        return [
+            'avatar' => 'required|image',
+            'resume' => 'required|mimes:png',
+        ];
+    }
 }
