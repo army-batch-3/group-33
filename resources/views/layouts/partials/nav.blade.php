@@ -43,7 +43,7 @@
 
                 @can('Manage Warehouses')
 				<li id="tabs2">
-					<a class="waves-effect" href="{{ route('manageUser') }}"><i class="menu-icon fa fa-building"></i><span>Warehouses</span></a>
+					<a class="waves-effect" href="{{ route('warehouse.view') }}"><i class="menu-icon fa fa-building"></i><span>Warehouses</span></a>
 				</li>
 				@endcan
 
