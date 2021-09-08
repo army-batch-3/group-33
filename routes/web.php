@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AssetController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\WarehouseController;
@@ -31,7 +32,6 @@ Route::get('update-info', [HomeController::class,'update_info'])->name('update-i
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('Profile-View', [HomeController::class, 'profile_view'])->name('profile_view');
-
 
     Route::get('dashboard', [HomeController::class, 'dashboard_lists'])->name('dashboard_lists');
 
@@ -63,6 +63,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // Route::get('/Suppliers', function () { return view('suppliers'); })->name('supplier');
     Route::get('/Suppliers', [SupplierController::class, 'supplier'])->name('supplier');
 
+    Route::get('/Assets', [AssetController::class, 'index'])->name('assets');
+    Route::post('/Assets-Get', [AssetController::class, 'getAssets'])->name('getAssets');
+    Route::post('/Assets-Store', [AssetController::class, 'storeAssets'])->name('storeAssets');
 
     // Warehouse    
     Route::post('/Warehouse-Store', [WarehouseController::class, 'storeWarehouse'])->name('storeWarehouse');
