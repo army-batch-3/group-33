@@ -21,6 +21,7 @@ class AssetsDataTableEditor extends DataTablesEditor
     {
         return [
             'name' => 'required|sometimes',
+            'photo' => 'required|sometimes',
             'number_of_stocks' => 'required|sometimes',
             'type' => 'required|sometimes',
             'price' => 'required|sometimes',
@@ -39,6 +40,7 @@ class AssetsDataTableEditor extends DataTablesEditor
     {
         return [
             'name' => 'required|sometimes',
+            'photo' => 'required|sometimes',
             'number_of_stocks' => 'required|sometimes',
             'type' => 'required|sometimes',
             'price' => 'required|sometimes',
@@ -60,8 +62,7 @@ class AssetsDataTableEditor extends DataTablesEditor
 
     public function uploadRules() {
         return [
-            'avatar' => 'required|image',
-            'resume' => 'required|mimes:png',
+            'photo' => 'required|image',
         ];
     }
 }

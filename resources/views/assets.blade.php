@@ -35,12 +35,12 @@
                     name: "photo",
                     type: 'upload',
                     display: function ( file_id ) {
-                        return '<img src="'+editor.file( 'files', file_id ).web_path+'"/>';
+                        return '<img src="storage/'+file_id+'"/>';
                     },
                     clearText: "Clear",
                     noImageText: 'No image'
                 },  {
-                    label: "Number of Stocks",
+                    label: "No. of Stocks",
                     name: "number_of_stocks",
                     type: 'text'
                 }, {
@@ -70,7 +70,9 @@
             });
             
             $('#assets-table').on('click', 'tbody td:not(:first-child)', function(e) {
-                editor.inline(this);
+                editor.inline( this, {
+                    buttons: { label: '&gt;', fn: function () { this.submit(); } }
+                } );
             });
 
             $('#assets-table').DataTable({
@@ -81,38 +83,47 @@
                 },
                 columns: [{
                         data: 'id',
-                        title: 'ID'
+                        title: 'ID',
+                        width: "10px"
                     },
                     {
                         data: 'name',
-                        title: 'Name'
+                        title: 'Name',
+                        width: "10px"
                     },
                     {
                         data: 'number_of_stocks',
-                        title: 'Number of Stocks'
+                        title: 'No. of Stocks',
+                        width: "10px"
                     },
                     {
                         data: "photo",
                         render: function ( file_id ) {
                             return file_id ?
-                                '<img src="'+editor.file( 'files', file_id ).web_path+'"/>' :
+                                '<img src="storage/'+file_id+'" "/>' :
                                 null;
                         },
                         defaultContent: "No image",
-                        title: "Image"
+                        title: "Image",
+                        width: "10px",
+                        height: "50px"
                     },
                     {
                         data: 'type',
-                        title: 'Type'
+                        title: 'Type',
+                        width: "10px"
                     },
                     {
                         data: 'price',
-                        title: 'Price'
+                        render: $.fn.dataTable.render.number( ',', '.', 0, '₱' ),
+                        title: 'Price',
+                        width: "10px"
                     },
                     {
                         data: 'supplierdb',
                         editField: 'supplier',
-                        title: 'Supplier'
+                        title: 'Supplier',
+                        width: "10px"
                     },
                     {
                         data: 'warehousedb',
