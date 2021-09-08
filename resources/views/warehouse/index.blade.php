@@ -56,20 +56,6 @@
                     label: "Contact Number",
                     name: "contact_number",
                     type: 'text'
-                },  {
-                    label: 'Created At:',
-                    name: 'created_at',
-                    type: "hidden",
-                    def: function() {
-                        return moment(new Date()).format("YYYY-MM-DD HH:mm:ss");
-                    }
-                }, {
-                    label: 'Updated At:',
-                    name: 'updated_at',
-                    type: "hidden",
-                    def: function() {
-                        return moment(new Date()).format("YYYY-MM-DD HH:mm:ss");
-                    }
                 }]
             });
 

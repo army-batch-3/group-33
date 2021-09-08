@@ -10,7 +10,7 @@ class Warehouse extends Model
     use HasFactory;
   
     protected $table = "pa_warehouses";
-    public $timestamps = false;
+    // public $timestamps = false;
 
     protected $fillable = [
         'name',
@@ -20,6 +20,8 @@ class Warehouse extends Model
         'address',
         'section',
         'contact_number',
+        'created_at',
+        'updated_at'
 
     ];
 

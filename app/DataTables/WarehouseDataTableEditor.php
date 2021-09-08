@@ -2,10 +2,11 @@
 
 namespace App\DataTables;
 
+use Carbon\Carbon;
 use App\Models\Warehouse;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Validation\Rule;
 use Yajra\DataTables\DataTablesEditor;
+use Illuminate\Database\Eloquent\Model;
 
 class WarehouseDataTableEditor extends DataTablesEditor
 {
@@ -26,8 +27,6 @@ class WarehouseDataTableEditor extends DataTablesEditor
             'address' => 'required',
             'section' => 'required',
             'contact_number' => 'required',
-            'created_at' => 'required|sometimes',
-            'updated_at' => 'required|sometimes',
         ];
     }
 
@@ -40,15 +39,13 @@ class WarehouseDataTableEditor extends DataTablesEditor
     public function editRules(Model $model)
     {
         return [
-            'name' => 'required',            
-            'floor' => 'required',
-            'building' => 'required',
-            'room' => 'required',
-            'address' => 'required',
-            'section' => 'required',
-            'contact_number' => 'required',
-            'created_at' => 'required|sometimes',
-            'updated_at' => 'required|sometimes',
+            'name' => 'required|sometimes',            
+            'floor' => 'required|sometimes',
+            'building' => 'required|sometimes',
+            'room' => 'required|sometimes',
+            'address' => 'required|sometimes',
+            'section' => 'required|sometimes',
+            'contact_number' => 'required|sometimes',
         ];
     }
 

@@ -59,13 +59,6 @@
                     label: "Warehouse",
                     name: "warehouse",
                     type: 'select'
-                }, {
-                    label: 'Updated At:',
-                    name: 'updated_at',
-                    type: "hidden",
-                    def: function() {
-                        return moment(new Date()).format("YYYY-MM-DD HH:mm:ss");
-                    }
                 }]
             });
             
@@ -129,6 +122,14 @@
                         data: 'warehousedb',
                         editField: 'warehouse',
                         title: 'Warehouse'
+                    },
+                    {
+                        data: 'created_at',
+                        title: 'Date Created'
+                    },
+                    {
+                        data: 'updated_at',
+                        title: 'Last Update'
                     }
                 ],
                 select: true,

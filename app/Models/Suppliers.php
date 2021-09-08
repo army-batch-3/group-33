@@ -9,7 +9,6 @@ class Suppliers extends Model
 {
     use HasFactory;
     protected $table="pa_suppliers";
-    public $timestamps  = false;
     protected $fillable = [
         'name',
         'email',
