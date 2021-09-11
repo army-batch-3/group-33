@@ -24,8 +24,6 @@ class SupplierDataTableEditor extends DataTablesEditor
             'contact_number' => 'required',
             'contact_person' => 'required',
             'address' => 'required',
-            'created_at' => 'required|sometimes',
-            'updated_at' => 'required|sometimes',
         ];
     }
 
@@ -43,8 +41,6 @@ class SupplierDataTableEditor extends DataTablesEditor
             'contact_number' => 'required|sometimes',
             'contact_person' => 'required|sometimes',
             'address' => 'required|sometimes',
-            'created_at' => 'required|sometimes',
-            'updated_at' => 'required|sometimes',
         ];
     }
 

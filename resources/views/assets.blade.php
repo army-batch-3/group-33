@@ -53,22 +53,15 @@
                     type: 'text'
                 }, {
                     label: "Supplier",
-                    name: "supplier",
+                    name: "supplier_id",
                     type: 'select'
                 }, {
                     label: "Warehouse",
-                    name: "warehouse",
+                    name: "warehouse_id",
                     type: 'select'
-                }, {
-                    label: 'Updated At:',
-                    name: 'updated_at',
-                    type: "hidden",
-                    def: function() {
-                        return moment(new Date()).format("YYYY-MM-DD HH:mm:ss");
-                    }
                 }]
             });
-            
+
             $('#assets-table').on('click', 'tbody td:not(:first-child)', function(e) {
                 editor.inline( this, {
                     buttons: { label: '&gt;', fn: function () { this.submit(); } }
@@ -121,13 +114,13 @@
                     },
                     {
                         data: 'supplierdb',
-                        editField: 'supplier',
+                        editField: 'supplierdb',
                         title: 'Supplier',
                         width: "10px"
                     },
                     {
                         data: 'warehousedb',
-                        editField: 'warehouse',
+                        editField: 'warehousedb',
                         title: 'Warehouse'
                     }
                 ],
