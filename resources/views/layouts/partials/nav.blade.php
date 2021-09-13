@@ -31,7 +31,7 @@
 
                 @can('Manage Transportation')
 				<li id="tabs2">
-					<a class="waves-effect" href="{{ route('manageUser') }}"><i class="menu-icon fa fa-car"></i><span>Transportations</span></a>
+					<a class="waves-effect" href="{{ route('transportation') }}"><i class="menu-icon fa fa-car"></i><span>Transportations</span></a>
 				</li>
 				@endcan
 

@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TransportationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,6 +62,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::post('Supplier-Get', [SupplierController::class, 'getSupplier'])->name('getSupplier');
     // Route::get('/Suppliers', function () { return view('suppliers'); })->name('supplier');
     Route::get('/Suppliers', [SupplierController::class, 'supplier'])->name('supplier');
+
+
+    Route::post('Transportation-Store', [TransportationController::class, 'storeTransportation'])->name('storeTransportation');
+    Route::post('Transportation-Get', [TransportationController::class, 'getTransportation'])->name('getTransportation');
+    Route::get('/Transportations', [TransportationController::class, 'transportation'])->name('transportation');
 
 
     Route::post('Info-Store', [AdminController::class, 'infoUpdate'])->name('infoUpdate');
