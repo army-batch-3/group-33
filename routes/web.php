@@ -8,6 +8,8 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\WarehouseController;
+use App\Http\Controllers\RequisitionController;
+use App\Http\Controllers\RequisitionFormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -85,6 +87,20 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::post('Warehouse-Get', [WarehouseController::class, 'getWarehouse'])->name('getWarehouse');
         Route::get('/warehouse', [WarehouseController::class, 'warehouse'])->name('warehouse.view');
     });
+
+    // Manage Requisition
+    // Route::group(['middleware' => 'can:Manage Assets'], function () {
+        Route::get('/Restock', [RequisitionController::class, 'index'])->name('restock');
+        Route::post('/Restock-Get', [RequisitionController::class, 'getRequesition'])->name('getRequesition');
+        Route::post('/Restock-Store', [RequisitionController::class, 'storeRequisition'])->name('storeRequisition');
+    // });
+
+
+    Route::get('/RequisitionForm', [RequisitionFormController::class, 'index'])->name('requisition');
+    Route::post('/RequisitionForm-Get', [RequisitionFormController::class, 'getRequisition'])->name('getRequisitionForm');
+    Route::post('/RequisitionForm-Store', [RequisitionFormController::class, 'storeRequisition'])->name('storeRequisitionForm');
+
+    
 
     Route::post('Info-Store', [AdminController::class, 'infoUpdate'])->name('infoUpdate');
     Route::post('All-PersonalInfo-get', [AdminController::class, 'getAllPersonal'])->name('getAllPersonal');
