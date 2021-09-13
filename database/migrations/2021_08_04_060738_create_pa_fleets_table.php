@@ -25,9 +25,9 @@ class CreatePaFleetsTable extends Migration
                 'Picked-up',
                 'Pending'
             ]);
-            $table->unsignedBigInteger('driver_id');
+            $table->bigInteger('driver_id');
 
-            $table->foreign('driver_id')->references('id')->on('pa_drivers');
+            // $table->foreign('driver_id')->references('id')->on('pa_drivers');
             $table->timestamps();
         });
     }
