@@ -3,8 +3,8 @@
     <div class="container" style="width:100%">
         <div class="col-xs-12">
             <div class="box-content">
-                <h1>Assets</h1>
-                <table id="assets-table" class="display compact responsive nowrap"></table>
+                <h1>Restock Form</h1>
+                <table id="restock-table" class="display compact responsive nowrap"></table>
             </div>
         </div>
     </div>
@@ -18,60 +18,60 @@
         });
 
         $(document).ready(function() {
-            var editor = new $.fn.dataTable.Editor({
-                ajax: "{{ route('storeAssets') }}",
-                table: "#assets-table",
-                idSrc: 'id',
-                fields: [{
-                    label: "id",
-                    name: "id",
-                    type: 'hidden'
-                }, {
-                    label: "Name",
-                    name: "name",
-                    type: 'text'
-                }, {
-                    label: "Photo",
-                    name: "photo",
-                    type: 'upload',
-                    display: function ( file_id ) {
-                        return '<img src="storage/'+file_id+'"/>';
-                    },
-                    clearText: "Clear",
-                    noImageText: 'No image'
-                },  {
-                    label: "No. of Stocks",
-                    name: "number_of_stocks",
-                    type: 'text'
-                }, {
-                    label: "Type",
-                    name: "type",
-                    type: 'text'
-                }, {
-                    label: "Price",
-                    name: "price",
-                    type: 'text'
-                }, {
-                    label: "Supplier",
-                    name: "supplier_id",
-                    type: 'select'
-                }, {
-                    label: "Warehouse",
-                    name: "warehouse_id",
-                    type: 'select'
-                }]
-            });
+            // var editor = new $.fn.dataTable.Editor({
+            //     ajax: "{{ route('restock') }}",
+            //     table: "#assets-table",
+            //     idSrc: 'id',
+            //     fields: [{
+            //         label: "id",
+            //         name: "id",
+            //         type: 'hidden'
+            //     }, {
+            //         label: "Name",
+            //         name: "name",
+            //         type: 'text'
+            //     }, {
+            //         label: "Photo",
+            //         name: "photo",
+            //         type: 'upload',
+            //         display: function ( file_id ) {
+            //             return '<img src="storage/'+file_id+'"/>';
+            //         },
+            //         clearText: "Clear",
+            //         noImageText: 'No image'
+            //     },  {
+            //         label: "No. of Stocks",
+            //         name: "number_of_stocks",
+            //         type: 'text'
+            //     }, {
+            //         label: "Type",
+            //         name: "type",
+            //         type: 'text'
+            //     }, {
+            //         label: "Price",
+            //         name: "price",
+            //         type: 'text'
+            //     }, {
+            //         label: "Supplier",
+            //         name: "supplier_id",
+            //         type: 'select'
+            //     }, {
+            //         label: "Warehouse",
+            //         name: "warehouse_id",
+            //         type: 'select'
+            //     }]
+            // });
 
-            $('#assets-table').on('click', 'tbody td:not(:first-child)', function(e) {
-                editor.inline( this, {
-                    buttons: { label: '&gt;', fn: function () { this.submit(); } }
-                } );
-            });
+            // $('#restock-table').on('click', 'tbody td:not(:first-child)', function(e) {
+            //     editor.inline( this, {
+            //         buttons: { label: '&gt;', fn: function () { this.submit(); } }
+            //     } );
+            // });
 
-            $('#assets-table').DataTable({
+            $('#restock-table').DataTable({
                 dom: "<'clear'l>Bfrtip",
                 ajax: {
-                    url: "{{ route('getAssets') }}",
+                    url: "{{ route('getRestock') }}",
                     type: 'post'
                 },
                 columns: [{

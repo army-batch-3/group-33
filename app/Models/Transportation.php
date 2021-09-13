@@ -14,7 +14,5 @@ class Transportation extends Model
         'type',
         'plate_number',
         'is_available',
-        'created_at',
-        'updated_at'
     ];
 }

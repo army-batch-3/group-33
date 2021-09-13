@@ -59,6 +59,16 @@
 				</li>
 				@endcan
 
+             
+				<li id="tabs2">
+					<a class="waves-effect" href="{{ route('restock') }}"><i class="menu-icon fa fa-users"></i><span>Restocks</span></a>
+				</li>
+             
+				<li id="tabs2">
+					<a class="waves-effect" href="{{ route('requisition') }}"><i class="menu-icon fa fa-users"></i><span>Requisition Form</span></a>
+				</li>
+				
+
                 @can('Manage Reports')
 				<li id="tabs2">
 					<a class="waves-effect" href="{{ route('manageUser') }}"><i class="menu-icon fa fa-file-pdf-o"></i><span>Reports</span></a>

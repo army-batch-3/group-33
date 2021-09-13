@@ -18,6 +18,8 @@ class Warehouse extends Model
         'address',
         'section',
         'contact_number',
+        'created_at',
+        'updated_at'
 
     ];
 
