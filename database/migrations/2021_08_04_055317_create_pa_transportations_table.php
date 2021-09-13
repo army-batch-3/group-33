@@ -17,10 +17,7 @@ class CreatePaTransportationsTable extends Migration
             $table->id();
             $table->string('type');
             $table->string('plate_number');
-
-            $table->unsignedBigInteger('vehicle_id');
-
-            $table->foreign('vehicle_id')->references('id')->on('pa_vehicles');
+            $table->boolean('is_available')->default(true);
             $table->timestamps();
         });
     }

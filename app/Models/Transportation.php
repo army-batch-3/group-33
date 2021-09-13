@@ -9,8 +9,8 @@ class Transportation extends Model
 {
     use HasFactory;
     protected $table="pa_transportations";
+    public $timestamps  = false;
     protected $fillable = [
-        'id',
         'type',
         'plate_number',
         'is_available',

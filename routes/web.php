@@ -7,6 +7,7 @@ use App\Http\Controllers\AssetController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TransportationController;
 use App\Http\Controllers\WarehouseController;
 use App\Http\Controllers\RequisitionController;
 use App\Http\Controllers\RequisitionFormController;
@@ -88,6 +89,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::get('/warehouse', [WarehouseController::class, 'warehouse'])->name('warehouse.view');
     });
 
+
     // Manage Requisition
     // Route::group(['middleware' => 'can:Manage Assets'], function () {
         Route::get('/Restock', [RequisitionController::class, 'index'])->name('restock');
@@ -101,6 +103,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::post('/RequisitionForm-Store', [RequisitionFormController::class, 'storeRequisition'])->name('storeRequisitionForm');
 
     
+    Route::post('Transportation-Store', [TransportationController::class, 'storeTransportation'])->name('storeTransportation');
+    Route::post('Transportation-Get', [TransportationController::class, 'getTransportation'])->name('getTransportation');
+    Route::get('/Transportations', [TransportationController::class, 'transportation'])->name('transportation');
+
+
 
     Route::post('Info-Store', [AdminController::class, 'infoUpdate'])->name('infoUpdate');
     Route::post('All-PersonalInfo-get', [AdminController::class, 'getAllPersonal'])->name('getAllPersonal');
