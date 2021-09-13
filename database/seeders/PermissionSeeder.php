@@ -86,5 +86,13 @@ class PermissionSeeder extends Seeder
             'name'=>'Manage Fleet',
             'guard_name'=>'web'
         ]);
+        Permission::create([
+            'name'=>'Manage Restocks',
+            'guard_name'=>'web'
+        ]);
+        Permission::create([
+            'name'=>'Manage Requisitions',
+            'guard_name'=>'web'
+        ]);
     }
 }
