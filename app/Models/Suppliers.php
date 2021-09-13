@@ -15,7 +15,5 @@ class Suppliers extends Model
         'contact_number',
         'contact_person',
         'address',
-        'created_at',
-        'updated_at'
     ];
 }

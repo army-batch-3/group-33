@@ -55,7 +55,7 @@
 
                 @can('Manage Employee')
 				<li id="tabs2">
-					<a class="waves-effect" href="{{ route('manageUser') }}"><i class="menu-icon fa fa-users"></i><span>Employees</span></a>
+					<a class="waves-effect" href="{{ route('employee') }}"><i class="menu-icon fa fa-users"></i><span>Employees</span></a>
 				</li>
 				@endcan
 

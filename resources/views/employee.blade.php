@@ -3,8 +3,8 @@
     <div class="container" style="width:100%">
         <div class="col-xs-12">
             <div class="box-content">
-                <h1>Assets</h1>
-                <table id="assets-table" class="display compact responsive nowrap"></table>
+                <h1>Employee</h1>
+                <table id="employee-table" class="display compact responsive nowrap"></table>
             </div>
         </div>
     </div>
@@ -19,16 +19,20 @@
 
         $(document).ready(function() {
             var editor = new $.fn.dataTable.Editor({
-                ajax: "{{ route('storeAssets') }}",
-                table: "#assets-table",
+                ajax: "{{ route('storeEmployee') }}",
+                table: "#employee-table",
                 idSrc: 'id',
                 fields: [{
-                    label: "id",
-                    name: "id",
-                    type: 'hidden'
+                    label: "First Name",
+                    name: "first_name",
+                    type: 'text'
                 }, {
-                    label: "Name",
-                    name: "name",
+                    label: "Middle Name",
+                    name: "middle_name",
+                    type: 'text'
+                }, {
+                    label: "Last Name",
+                    name: "last_name",
                     type: 'text'
                 }, {
                     label: "Photo",
@@ -40,38 +44,27 @@
                     clearText: "Clear",
                     noImageText: 'No image'
                 },  {
-                    label: "No. of Stocks",
-                    name: "number_of_stocks",
-                    type: 'text'
-                }, {
                     label: "Type",
-                    name: "type",
-                    type: 'text'
-                }, {
-                    label: "Price",
-                    name: "price",
-                    type: 'text'
-                }, {
-                    label: "Supplier",
-                    name: "supplier_id",
-                    type: 'select'
-                }, {
-                    label: "Warehouse",
-                    name: "warehouse_id",
-                    type: 'select'
+                    name: "employee_type",
+                    type:  "select",
+                    options: [
+                        { label: "Regular", value: "Regular" },
+                        { label: "Probationary", value: "Probationary" },
+                        { label: "Trainee", value: "Trainee" }
+                    ]
                 }]
             });
 
-            $('#assets-table').on('click', 'tbody td:not(:first-child)', function(e) {
+            $('#employee-table').on('click', 'tbody td:not(:first-child)', function(e) {
                 editor.inline( this, {
                     buttons: { label: '&gt;', fn: function () { this.submit(); } }
                 } );
             });
 
-            $('#assets-table').DataTable({
+            $('#employee-table').DataTable({
                 dom: "<'clear'l>Bfrtip",
                 ajax: {
-                    url: "{{ route('getAssets') }}",
+                    url: "{{ route('getEmployee') }}",
                     type: 'post'
                 },
                 columns: [{
@@ -80,13 +73,23 @@
                         width: "10px"
                     },
                     {
-                        data: 'name',
-                        title: 'Name',
+                        data: 'first_name',
+                        title: 'First Name',
                         width: "10px"
                     },
                     {
-                        data: 'number_of_stocks',
-                        title: 'No. of Stocks',
+                        data: 'middle_name',
+                        title: 'Middle Name',
+                        width: "10px"
+                    },
+                    {
+                        data: 'last_name',
+                        title: 'Last Name',
+                        width: "10px"
+                    },
+                    {
+                        data: 'employee_type',
+                        title: 'Type',
                         width: "10px"
                     },
                     {
@@ -102,34 +105,14 @@
                         height: "50px"
                     },
                     {
-                        data: 'type',
-                        title: 'Type',
-                        width: "10px"
-                    },
-                    {
-                        data: 'price',
-                        render: $.fn.dataTable.render.number( ',', '.', 0, '₱' ),
-                        title: 'Price',
-                        width: "10px"
-                    },
-                    {
-                        data: 'supplierdb',
-                        editField: 'supplierdb',
-                        title: 'Supplier',
-                        width: "10px"
-                    },
-                    {
-                        data: 'warehousedb',
-                        editField: 'warehousedb',
-                        title: 'Warehouse'
-                    },
-                    {
                         data: 'created_at',
-                        title: 'Date Created'
+                        title: 'Date Created',
+                        width: "10px"
                     },
                     {
                         data: 'updated_at',
-                        title: 'Last Update'
+                        title: 'Date Updated',
+                        width: "10px"
                     }
                 ],
                 select: true,

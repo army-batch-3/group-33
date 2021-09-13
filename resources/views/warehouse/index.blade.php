@@ -18,7 +18,7 @@
         });
 
 
-           
+
         $(document).ready(function() {
             var editor = new $.fn.dataTable.Editor({
                 ajax: "{{ route('storeWarehouse') }}",

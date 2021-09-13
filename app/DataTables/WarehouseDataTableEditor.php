@@ -39,7 +39,7 @@ class WarehouseDataTableEditor extends DataTablesEditor
     public function editRules(Model $model)
     {
         return [
-            'name' => 'required|sometimes',            
+            'name' => 'required|sometimes',
             'floor' => 'required|sometimes',
             'building' => 'required|sometimes',
             'room' => 'required|sometimes',
