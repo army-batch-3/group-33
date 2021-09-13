@@ -45,23 +45,9 @@
                         },
                         {
                             label: "No",
-                            value: '1'
+                            value: '0'
                         }
                     ],
-                }, {
-                    label: 'Created At:',
-                    name: 'created_at',
-                    type: "hidden",
-                    def: function() {
-                        return moment(new Date()).format("YYYY-MM-DD HH:mm:ss");
-                    }
-                }, {
-                    label: 'Updated At:',
-                    name: 'updated_at',
-                    type: "hidden",
-                    def: function() {
-                        return moment(new Date()).format("YYYY-MM-DD HH:mm:ss");
-                    }
                 }]
             });
 
@@ -91,7 +77,7 @@
                     {
                         data: null,
                         render: function(data, type, row) {
-                            if (data.active == '1')
+                            if (data.is_available == '1')
                                 return 'Yes';
                             else
                                 return 'No';
