@@ -19,6 +19,11 @@ use App\DataTables\rolesDataTableEditor;
 class AdminController extends Controller
 {
     use PersonalInfo;
+    public function transportations(){
+      //   dd(User::with('permissions')->get());
+        return view('layouts.transportations');
+     }
+
     public function manageUser(){
       //   dd(User::with('permissions')->get());
         return view('users.manage-emp');

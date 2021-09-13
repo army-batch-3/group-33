@@ -7,6 +7,7 @@ use App\Http\Controllers\AssetController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TransportationController;
 use App\Http\Controllers\WarehouseController;
 
 /*
@@ -85,6 +86,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::post('Warehouse-Get', [WarehouseController::class, 'getWarehouse'])->name('getWarehouse');
         Route::get('/warehouse', [WarehouseController::class, 'warehouse'])->name('warehouse.view');
     });
+
+    Route::post('Transportation-Store', [TransportationController::class, 'storeTransportation'])->name('storeTransportation');
+    Route::post('Transportation-Get', [TransportationController::class, 'getTransportation'])->name('getTransportation');
+    Route::get('/Transportations', [TransportationController::class, 'transportation'])->name('transportation');
+
 
     Route::post('Info-Store', [AdminController::class, 'infoUpdate'])->name('infoUpdate');
     Route::post('All-PersonalInfo-get', [AdminController::class, 'getAllPersonal'])->name('getAllPersonal');
