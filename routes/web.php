@@ -3,9 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AssetController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TransportationController;
+use App\Http\Controllers\WarehouseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,12 +29,11 @@ Route::get('/', function () {
 //     return view('dashboard');
 // })->name('dashboard');
 Route::post('Update-Info-Register', [HomeController::class, 'updateInfo'])->name('updateInfo');
-Route::get('update-info', [HomeController::class,'update_info'])->name('update-info');
+Route::get('update-info', [HomeController::class, 'update_info'])->name('update-info');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('Profile-View', [HomeController::class, 'profile_view'])->name('profile_view');
-
 
     Route::get('dashboard', [HomeController::class, 'dashboard_lists'])->name('dashboard_lists');
 
@@ -57,12 +59,33 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::post('User-Get', [AdminController::class, 'getLogin'])->name('getLogin');
     });
 
+    // Manage Supplier
+    Route::group(['middleware' => 'can:Manage Suppliers'], function () {
+        Route::post('Supplier-Store', [SupplierController::class, 'storeSupplier'])->name('storeSupplier');
+        Route::post('Supplier-Get', [SupplierController::class, 'getSupplier'])->name('getSupplier');
+        Route::get('/Suppliers', [SupplierController::class, 'supplier'])->name('supplier');
+    });
 
-    Route::post('Supplier-Store', [SupplierController::class, 'storeSupplier'])->name('storeSupplier');
-    Route::post('Supplier-Get', [SupplierController::class, 'getSupplier'])->name('getSupplier');
-    // Route::get('/Suppliers', function () { return view('suppliers'); })->name('supplier');
-    Route::get('/Suppliers', [SupplierController::class, 'supplier'])->name('supplier');
+    // Manage Assets
+    Route::group(['middleware' => 'can:Manage Assets'], function () {
+        Route::get('/Assets', [AssetController::class, 'index'])->name('assets');
+        Route::post('/Assets-Get', [AssetController::class, 'getAssets'])->name('getAssets');
+        Route::post('/Assets-Store', [AssetController::class, 'storeAssets'])->name('storeAssets');
+    });
 
+    // Manage Employee
+    Route::group(['middleware' => 'can:Manage Employee'], function () {
+        Route::get('/Employee', [EmployeeController::class, 'index'])->name('employee');
+        Route::post('/Employee-Get', [EmployeeController::class, 'getEmployee'])->name('getEmployee');
+        Route::post('/Employee-Store', [EmployeeController::class, 'storeEmployee'])->name('storeEmployee');
+    });
+
+    // Manage Warehouse
+    Route::group(['middleware' => 'can:Manage Warehouses'], function () {
+        Route::post('/Warehouse-Store', [WarehouseController::class, 'storeWarehouse'])->name('storeWarehouse');
+        Route::post('Warehouse-Get', [WarehouseController::class, 'getWarehouse'])->name('getWarehouse');
+        Route::get('/warehouse', [WarehouseController::class, 'warehouse'])->name('warehouse.view');
+    });
 
     Route::post('Transportation-Store', [TransportationController::class, 'storeTransportation'])->name('storeTransportation');
     Route::post('Transportation-Get', [TransportationController::class, 'getTransportation'])->name('getTransportation');

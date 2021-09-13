@@ -2,14 +2,14 @@
 
 namespace App\DataTables;
 
-use App\Models\Suppliers;
+use App\Models\Employee;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Validation\Rule;
 use Yajra\DataTables\DataTablesEditor;
 
-class SupplierDataTableEditor extends DataTablesEditor
+class EmployeeDataTableEditor extends DataTablesEditor
 {
-    protected $model = Suppliers::class;
+    protected $model = Employee::class;
 
     /**
      * Get create action validation rules.
@@ -19,11 +19,11 @@ class SupplierDataTableEditor extends DataTablesEditor
     public function createRules()
     {
         return [
-            'name' => 'required',
-            'email' => 'required',
-            'contact_number' => 'required',
-            'contact_person' => 'required',
-            'address' => 'required',
+            'first_name' => 'required',
+            'middle_name' => 'required',
+            'last_name' => 'required',
+            'photo' => 'required',
+            'employee_type' => 'required',
         ];
     }
 
@@ -36,11 +36,11 @@ class SupplierDataTableEditor extends DataTablesEditor
     public function editRules(Model $model)
     {
         return [
-            'name' => 'required|sometimes',
-            'email' => 'required|sometimes',
-            'contact_number' => 'required|sometimes',
-            'contact_person' => 'required|sometimes',
-            'address' => 'required|sometimes',
+            'first_name' => 'sometimes',
+            'middle_name' => 'sometimes',
+            'last_name' => 'sometimes',
+            'photo' => 'sometimes',
+            'employee_type' => 'sometimes',
         ];
     }
 
@@ -53,5 +53,11 @@ class SupplierDataTableEditor extends DataTablesEditor
     public function removeRules(Model $model)
     {
         return [];
+    }
+
+    public function uploadRules() {
+        return [
+            'photo' => 'required|image',
+        ];
     }
 }

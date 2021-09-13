@@ -3,8 +3,8 @@
     <div class="container" style="width:100%">
         <div class="col-xs-12">
             <div class="box-content">
-                <h1>Suppliers</h1>
-                <table id="suppliers-table" class="display compact responsive nowrap"></table>
+                <h1>Warehouse</h1>
+                <table id="warehouse-table" class="display compact responsive nowrap"></table>
             </div>
         </div>
     </div>
@@ -18,10 +18,11 @@
         });
 
 
+
         $(document).ready(function() {
             var editor = new $.fn.dataTable.Editor({
-                ajax: "{{ route('storeSupplier') }}",
-                table: "#suppliers-table",
+                ajax: "{{ route('storeWarehouse') }}",
+                table: "#warehouse-table",
                 idSrc: 'id',
                 fields: [{
                     label: "id",
@@ -32,33 +33,42 @@
                     name: "name",
                     type: 'text'
                 }, {
-                    label: "Email",
-                    name: "email",
+                    label: "Floor",
+                    name: "floor",
                     type: 'text'
                 }, {
-                    label: "Contact Number",
-                    name: "contact_number",
+                    label: "Building",
+                    name: "building",
                     type: 'text'
                 }, {
-                    label: "Contact Person",
-                    name: "contact_person",
+                    label: "room",
+                    name: "room",
                     type: 'text'
                 }, {
                     label: "Address",
                     name: "address",
                     type: 'text'
+                }, {
+                    label: "Section",
+                    name: "section",
+                    type: 'text'
+                }, {
+                    label: "Contact Number",
+                    name: "contact_number",
+                    type: 'text'
                 }]
             });
 
 
-            $('#suppliers-table').on('click', 'tbody td:not(:first-child)', function(e) {
+            $('#warehouse-table').on('click', 'tbody td:not(:first-child)', function(e) {
                 editor.inline(this);
             });
 
-            $('#suppliers-table').DataTable({
+
+            $('#warehouse-table').DataTable({
                 dom: "<'clear'l>Bfrtip",
                 ajax: {
-                    url: "{{ route('getSupplier') }}",
+                    url: "{{ route('getWarehouse') }}",
                     type: 'post'
                 },
                 columns: [{
@@ -70,20 +80,28 @@
                         title: 'Name'
                     },
                     {
-                        data: 'email',
-                        title: 'Email'
+                        data: 'floor',
+                        title: 'Floor'
                     },
                     {
-                        data: 'contact_number',
-                        title: 'Contact Number'
+                        data: 'building',
+                        title: 'Building'
                     },
                     {
-                        data: 'contact_person',
-                        title: 'Contact Person'
+                        data: 'room',
+                        title: 'Room'
                     },
                     {
                         data: 'address',
                         title: 'Address'
+                    },
+                    {
+                        data: 'section',
+                        title: 'Section'
+                    },
+                    {
+                        data: 'contact_number',
+                        title: 'Contact Number'
                     },
                     {
                         data: 'created_at',
@@ -95,7 +113,8 @@
                     }
                 ],
                 select: true,
-                buttons: [{
+                buttons: [
+                    {
                         extend: "create",
                         editor: editor
                     },

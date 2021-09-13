@@ -2,14 +2,14 @@
 
 namespace App\DataTables;
 
-use App\Models\Suppliers;
+use App\Models\Warehouse;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Validation\Rule;
 use Yajra\DataTables\DataTablesEditor;
 
-class SupplierDataTableEditor extends DataTablesEditor
+class WarehouseDataTableEditor extends DataTablesEditor
 {
-    protected $model = Suppliers::class;
+    protected $model = Warehouse::class;
 
     /**
      * Get create action validation rules.
@@ -20,10 +20,12 @@ class SupplierDataTableEditor extends DataTablesEditor
     {
         return [
             'name' => 'required',
-            'email' => 'required',
-            'contact_number' => 'required',
-            'contact_person' => 'required',
+            'floor' => 'required',
+            'building' => 'required',
+            'room' => 'required',
             'address' => 'required',
+            'section' => 'required',
+            'contact_number' => 'required',
         ];
     }
 
@@ -37,10 +39,12 @@ class SupplierDataTableEditor extends DataTablesEditor
     {
         return [
             'name' => 'required|sometimes',
-            'email' => 'required|sometimes',
-            'contact_number' => 'required|sometimes',
-            'contact_person' => 'required|sometimes',
+            'floor' => 'required|sometimes',
+            'building' => 'required|sometimes',
+            'room' => 'required|sometimes',
             'address' => 'required|sometimes',
+            'section' => 'required|sometimes',
+            'contact_number' => 'required|sometimes',
         ];
     }
 
