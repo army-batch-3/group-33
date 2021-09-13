@@ -60,9 +60,32 @@ class AssetsDataTableEditor extends DataTablesEditor
         return [];
     }
 
-    public function uploadRules() {
+    public function uploadRules()
+    {
         return [
             'photo' => 'required|image',
         ];
+    }
+
+    public function created(Model $model, array $data)
+    {
+        $fix = $model->join('pa_suppliers', 'pa_suppliers.id', '=', "pa_assets.supplier_id")
+            ->join("pa_warehouses", "pa_warehouses.id", "=", "pa_assets.warehouse_id")
+            ->select(
+                'pa_assets.id',
+                'pa_assets.name',
+                'pa_assets.photo',
+                'pa_assets.number_of_stocks',
+                'pa_assets.type',
+                'pa_assets.supplier_id',
+                "pa_assets.warehouse_id",
+                'pa_assets.price',
+                'pa_assets.created_at',
+                'pa_assets.updated_at',
+                'pa_suppliers.name AS supplierdb',
+                'pa_warehouses.name as warehousedb'
+            )
+            ->get()->toBase();
+        return $fix[count($fix) - 1];
     }
 }

@@ -114,13 +114,13 @@
                     },
                     {
                         data: 'supplierdb',
-                        editField: 'supplierdb',
+                        editField: 'supplier_id',
                         title: 'Supplier',
                         width: "10px"
                     },
                     {
                         data: 'warehousedb',
-                        editField: 'warehousedb',
+                        editField: 'warehouse_id',
                         title: 'Warehouse'
                     },
                     {
