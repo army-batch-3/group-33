@@ -3,8 +3,8 @@
     <div class="container" style="width:100%">
         <div class="col-xs-12">
             <div class="box-content">
-                <h1>Restocks Form</h1>
-                <table id="requesition-table" class="display compact responsive nowrap"></table>
+                <h1>Requisition Form</h1>
+                <table id="requisition-table" class="display compact responsive nowrap"></table>
             </div>
         </div>
     </div>
@@ -21,23 +21,19 @@
 
              var editor = new $.fn.dataTable.Editor({
                 ajax: "{{ route('storeRequisition') }}",
-                table: "#requesition-table",
+                table: "#requisition-table",
                 idSrc: 'id',
                 fields: [{
                     label: "id",
                     name: "id",
                     type: 'hidden'
                 }, {
-                    label: "Supplier",
-                    name: "supplier_id",
-                    type: 'select'
-                },{
-                    label: "Warehouse",
-                    name: "warehouse_id",
+                    label: "Employee",
+                    name: "employee_id",
                     type: 'select'
                 }, {
                     label: "Transportation",
-                    name: "transportations_id",
+                    name: "transportation_id",
                     type: 'select'
                 }, {
                     label: "Assets",
@@ -62,16 +58,10 @@
                 }]
             });
 
-            // $('#requesition-table').on('click', 'tbody td:not(:first-child)', function(e) {
-            //     editor.inline( this, {
-            //         buttons: { label: '&gt;', fn: function () { this.submit(); } }
-            //     } );
-            // });
-      
-            $('#requesition-table').DataTable({
+            var requisition = $('#requisition-table').DataTable({
                 dom: "<'clear'l>Bfrtip",
                 ajax: {
-                    url: "{{ route('getRequesition') }}",
+                    url: "{{ route('getRequisition') }}",
                     type: 'post'
                 },
                 columns: [{
@@ -80,23 +70,18 @@
                         width: "10px"
                     },
                     {
-                        data: 'supplierdb',
-                        editField: 'supplierdb',
-                        title: 'Supplier',
-                    },
-                    {
-                        data: 'warehousedb',
-                        editField: 'warehousedb',
-                        title: 'Warehouse'
+                        data: 'employee_name',
+                        editField: 'employee_id',
+                        title: 'Employee',
                     },
                     {
                         data: 'transportationdb',
-                        editField: 'transportationdb',
+                        editField: 'transportation_id',
                         title: 'Transportation'
                     },
                     {
                         data: 'assetsdb',
-                        editField: 'assetsdb',
+                        editField: 'assets_id',
                         title: 'Assets'
                     },
                     {
@@ -123,14 +108,96 @@
                         editor: editor
                     },
                     {
-                        extend: "edit",
+                        extend: "remove",
                         editor: editor
                     },
                     {
-                        extend: "remove",
-                        editor: editor
+                        extends: 'select_single',
+                        className: 'marginLeft',
+                        text: 'Pending',
+                        action: function ( e, dt, node, config ) {
+                            editor
+                                .edit( requisition.row( { selected: true } ).index(), false )
+                                .set( 'status', "Pending" )
+                                .submit();
+                        }
+                    },{
+                        extends: 'select_single',
+                        className: 'marginLeft',
+                        text: 'Approved',
+                        action: function ( e, dt, node, config ) {
+                            editor
+                                .edit( requisition.row( { selected: true } ).index(), false )
+                                .set( 'status', "Approved" )
+                                .submit();
+                        }
+                    },{
+                        extends: 'select_single',
+                        className: 'marginLeft',
+                        text: 'Shipped',
+                        action: function ( e, dt, node, config ) {
+                            editor
+                                .edit( requisition.row( { selected: true } ).index(), false )
+                                .set( 'status', "Shipped" )
+                                .submit();
+                        }
+                    },{
+                        extends: 'select_single',
+                        className: 'marginLeft',
+                        text: 'Dropped Off',
+                        action: function ( e, dt, node, config ) {
+                            editor
+                                .edit( requisition.row( { selected: true } ).index(), false )
+                                .set( 'status', "Dropped Off" )
+                                .submit();
+                        }
+                    },{
+                        extends: 'select_single',
+                        className: 'marginLeft',
+                        text: 'Received',
+                        action: function ( e, dt, node, config ) {
+                            editor
+                                .edit( requisition.row( { selected: true } ).index(), false )
+                                .set( 'status', "Received" )
+                                .submit();
+                        }
+                    },
+                    {
+                        extends: 'select_single',
+                        className: 'marginLeft',
+                        text: 'Closed',
+                        action: function ( e, dt, node, config ) {
+                            editor
+                                .edit( requisition.row( { selected: true } ).index(), false )
+                                .set( 'status', "Closed" )
+                                .submit();
+                        }
                     }
                 ]
+            });
+            editor.on( 'postSubmit', function ( e, type ) {
+                if(type.data[0].status == "Received" || type.data[0].status == "Closed"){
+                    requisition.buttons().disable();
+                    requisition.buttons(0).enable();
+                    requisition.buttons(1).enable();
+                    (btn_value_id=="Received" ? requisition.buttons(7).enable() : '')
+                }else{
+                    requisition.buttons().enable();
+                }
+            } );
+
+            requisition.on( 'select', function () {
+                btn_value_id = requisition.row( { selected: true } ).data().status;
+                console.log("btn", btn_value_id);
+                if(btn_value_id == "Received" || btn_value_id == "Closed"){
+                    requisition.buttons().disable();
+                    requisition.buttons(0).enable();
+                    requisition.buttons(1).enable();
+                    (btn_value_id=="Received" ? requisition.buttons(7).enable() : '')
+                }else{
+                    requisition.buttons().enable();
+                }
+
             });
         });
     </script>
