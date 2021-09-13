@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Suppliers;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Assets extends Model
 {
@@ -20,4 +21,14 @@ class Assets extends Model
         'created_at',
         'updated_at'
     ];
+
+    public function supplier()
+    {
+        return $this->belongsTo(Suppliers::class);
+    }
+
+    public function warehouse()
+    {
+        return $this->belongsTo(Warehouse::class);
+    }
 }

@@ -20,9 +20,7 @@ class TransportationDataTableEditor extends DataTablesEditor
         return [
             'type' => 'required',
             'plate_number' => 'required',
-            'is_available' => 'required',
-            'created_at' => 'required|sometimes',
-            'updated_at' => 'required|sometimes'
+            'is_available' => 'required'
         ];
     }
 
@@ -37,9 +35,7 @@ class TransportationDataTableEditor extends DataTablesEditor
         return [
             'type' => 'required|sometimes',
             'plate_number' => 'required|sometimes',
-            'is_available' => 'required|sometimes',
-            'created_at' => 'required|sometimes',
-            'updated_at' => 'required|sometimes'
+            'is_available' => 'required|sometimes'
         ];
     }
 

@@ -59,15 +59,17 @@
 				</li>
 				@endcan
 
-             
+                @can('Manage Restocks')
 				<li id="tabs2">
-					<a class="waves-effect" href="{{ route('restock') }}"><i class="menu-icon fa fa-users"></i><span>Restocks</span></a>
+					<a class="waves-effect" href="{{ route('restock') }}"><i class="menu-icon fa fa-archive"></i><span>Restocks</span></a>
 				</li>
-             
+				@endcan
+
+                @can('Manage Requisitions')
 				<li id="tabs2">
-					<a class="waves-effect" href="{{ route('requisition') }}"><i class="menu-icon fa fa-users"></i><span>Requisition Form</span></a>
+					<a class="waves-effect" href="{{ route('requisition') }}"><i class="menu-icon fa fa-minus"></i><span>Requisition Form</span></a>
 				</li>
-				
+				@endcan
 
                 @can('Manage Reports')
 				<li id="tabs2">

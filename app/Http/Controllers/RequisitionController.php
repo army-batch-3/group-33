@@ -2,23 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use Datatables;
 use App\Models\Assets;
-use App\Models\Suppliers;
-use App\Models\Warehouse;
-use Illuminate\Http\Request;
+use App\Models\Employee;
+use App\Models\Requisition;
 use App\Models\Transportation;
-use App\Models\RequisitionItems;
 use App\DataTables\RequisitionDataTableEditor;
 
 class RequisitionController extends Controller
 {
-    protected $requisition, $suppliers, $warehouse, $asset;
-    public function __construct(RequisitionItems $requisition, Suppliers $suppliers, Warehouse $warehouse, Transportation $transportation, Assets $asset)
+    protected $requisition, $employee, $transportation, $asset;
+    public function __construct(Requisition $requisition, Employee $employee, Transportation $transportation, Assets $asset)
     {
         $this->requisition = $requisition;
-        $this->suppliers = $suppliers;
-        $this->warehouse = $warehouse;
+        $this->employee = $employee;
         $this->transportation = $transportation;
         $this->assets = $asset;
     }
@@ -27,34 +25,31 @@ class RequisitionController extends Controller
         return view("requisition");
     }
 
-    public function getRequesition()
+    public function getRequisition()
     {
-        // dd("asd");
-        
-        $option["supplier_id"] = Datatables::of($this->suppliers->select('id AS value', 'name AS label'))->make()->original["data"];
-        $option["warehouse_id"] = Datatables::of($this->warehouse->select('id AS value', 'name AS label'))->make()->original["data"];
-        $option["transportations_id"] = Datatables::of($this->transportation->select('id AS value', 'type AS label')->where("is_available", "1"))->make()->original["data"];
+        $option["employee_id"] = Datatables::of($this->employee->select('id AS value', DB::raw("CONCAT(first_name,' ',middle_name,' ',last_name) AS label") ))->make()->original["data"];
+        $option["transportation_id"] = Datatables::of($this->transportation->select('id AS value', 'type AS label')->where("is_available", 1))->make()->original["data"];
         $option["assets_id"] = Datatables::of($this->assets->select('id AS value', 'name AS label'))->make()->original["data"];
 
-        $asset = $this->requisition
-        ->join("pa_suppliers", "pa_suppliers.id", "=", "pa_requisition_items.supplier_id")
-        ->join("pa_warehouses", "pa_warehouses.id", "=", "pa_requisition_items.warehouse_id")
-        ->join("pa_transportations", "pa_transportations.id", "=", "pa_requisition_items.transportations_id")
-        ->join("pa_assets", "pa_assets.id", "=", "pa_requisition_items.assets_id")
-        ->select('pa_requisition_items.id','pa_requisition_items.quantity','pa_requisition_items.created_at','pa_requisition_items.updated_at','pa_requisition_items.status',
-        'pa_suppliers.name as supplierdb',
-        'pa_warehouses.name as warehousedb',
+        $requisition = $this->requisition
+        ->join("pa_employees", "pa_employees.id", "=", "pa_requisition.employee_id")
+        ->join("pa_transportations", "pa_transportations.id", "=", "pa_requisition.transportation_id")
+        ->join("pa_assets", "pa_assets.id", "=", "pa_requisition.assets_id")
+        ->select('pa_requisition.id','pa_requisition.quantity','pa_requisition.created_at','pa_requisition.updated_at','pa_requisition.status',
+        'pa_requisition.employee_id','pa_requisition.transportation_id','pa_requisition.assets_id',
+        DB::raw("CONCAT(first_name,' ',middle_name,' ',last_name) AS employee_name"),
         'pa_assets.name as assetsdb',
         'pa_transportations.type AS transportationdb');
- 
-        return Datatables::of($asset)
+
+        return Datatables::of($requisition)
         ->with('options',$option)
         ->make(true);
     }
 
-    public function storeRequisition(RequisitionDataTableEditor $requsitionData)
+    public function storeRequisition(RequisitionDataTableEditor $requisitionData)
     {
-        return $requsitionData->process(request());
+        // dd($requisitionData);
+        return $requisitionData->process(request());
     }
 
 

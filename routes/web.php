@@ -4,13 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AssetController;
+use App\Http\Controllers\RestockController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\SupplierController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\TransportationController;
 use App\Http\Controllers\WarehouseController;
 use App\Http\Controllers\RequisitionController;
-use App\Http\Controllers\RequisitionFormController;
+use App\Http\Controllers\TransportationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,24 +88,24 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::get('/warehouse', [WarehouseController::class, 'warehouse'])->name('warehouse.view');
     });
 
-
     // Manage Requisition
-    // Route::group(['middleware' => 'can:Manage Assets'], function () {
-        Route::get('/Restock', [RequisitionController::class, 'index'])->name('restock');
-        Route::post('/Restock-Get', [RequisitionController::class, 'getRequesition'])->name('getRequesition');
-        Route::post('/Restock-Store', [RequisitionController::class, 'storeRequisition'])->name('storeRequisition');
-    // });
+    Route::group(['middleware' => 'can:Manage Requisitions'], function () {
+        Route::get('/Restock', [RestockController::class, 'index'])->name('restock');
+        Route::post('/Restock-Get', [RestockController::class, 'getRestock'])->name('getRestock');
+        Route::post('/Restock-Store', [RestockController::class, 'storeRestock'])->name('storeRestock');
+    });
 
+    Route::group(['middleware' => 'can:Manage Restocks'], function () {
+        Route::get('/Requisition', [RequisitionController::class, 'index'])->name('requisition');
+        Route::post('/Requisition-Get', [RequisitionController::class, 'getRequisition'])->name('getRequisition');
+        Route::post('/Requisition-Store', [RequisitionController::class, 'storeRequisition'])->name('storeRequisition');
+    });
 
-    Route::get('/RequisitionForm', [RequisitionFormController::class, 'index'])->name('requisition');
-    Route::post('/RequisitionForm-Get', [RequisitionFormController::class, 'getRequisition'])->name('getRequisitionForm');
-    Route::post('/RequisitionForm-Store', [RequisitionFormController::class, 'storeRequisition'])->name('storeRequisitionForm');
-
-    
-    Route::post('Transportation-Store', [TransportationController::class, 'storeTransportation'])->name('storeTransportation');
-    Route::post('Transportation-Get', [TransportationController::class, 'getTransportation'])->name('getTransportation');
-    Route::get('/Transportations', [TransportationController::class, 'transportation'])->name('transportation');
-
+    Route::group(['middleware' => 'can:Manage Transportation'], function () {
+        Route::post('Transportation-Store', [TransportationController::class, 'storeTransportation'])->name('storeTransportation');
+        Route::post('Transportation-Get', [TransportationController::class, 'getTransportation'])->name('getTransportation');
+        Route::get('/Transportations', [TransportationController::class, 'transportation'])->name('transportation');
+    });
 
 
     Route::post('Info-Store', [AdminController::class, 'infoUpdate'])->name('infoUpdate');

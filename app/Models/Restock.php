@@ -5,17 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class RequisitionItems extends Model
+class Restock extends Model
 {
     use HasFactory;
-    protected $table="pa_requisition_items";
+    protected $table="pa_restock";
     protected $fillable = [
-        "quantity",
         "supplier_id",
         "warehouse_id",
-        "transportations_id",
+        "transportation_id",
         "assets_id",
+        "quantity",
         "status",
     ];
-
 }

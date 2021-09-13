@@ -30,7 +30,8 @@ class AssetController extends Controller
     {
         $option["supplier_id"] = Datatables::of($this->suppliers->select('id AS value', 'name AS label'))->make()->original["data"];
         $option["warehouse_id"] = Datatables::of($this->warehouse->select('id AS value', 'name AS label'))->make()->original["data"];
-        $asset = $this->assets->join("pa_suppliers", "pa_suppliers.id", "=", "pa_assets.supplier_id")
+        $asset = $this->assets
+        ->join("pa_suppliers", "pa_suppliers.id", "=", "pa_assets.supplier_id")
         ->join("pa_warehouses", "pa_warehouses.id", "=", "pa_assets.warehouse_id")
         ->select('pa_assets.id','pa_assets.name','pa_assets.photo','pa_assets.number_of_stocks','pa_assets.type',
         'pa_assets.price','pa_assets.created_at','pa_assets.updated_at','pa_suppliers.name AS supplierdb',
