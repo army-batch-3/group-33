@@ -130,6 +130,7 @@
                                 .edit( requisition.row( { selected: true } ).index(), false )
                                 .set( 'status', "Approved" )
                                 .submit();
+                                restock.ajax.reload();
                         }
                     },{
                         extends: 'select_single',
@@ -160,6 +161,7 @@
                                 .edit( requisition.row( { selected: true } ).index(), false )
                                 .set( 'status', "Received" )
                                 .submit();
+                                restock.ajax.reload();
                         }
                     },
                     {
@@ -171,6 +173,7 @@
                                 .edit( requisition.row( { selected: true } ).index(), false )
                                 .set( 'status', "Closed" )
                                 .submit();
+                                restock.ajax.reload();
                         }
                     }
                 ]
