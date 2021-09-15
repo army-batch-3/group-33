@@ -8,6 +8,7 @@ use App\Models\Restock;
 use App\Models\Transportation;
 use Yajra\DataTables\DataTablesEditor;
 use Illuminate\Database\Eloquent\Model;
+use SebastianBergmann\Environment\Console;
 
 class RestockDataTableEditor extends DataTablesEditor
 {
@@ -61,19 +62,23 @@ class RestockDataTableEditor extends DataTablesEditor
 
     public function updating(Model $model, array $data)
     {
-        $status = Transportation::find($data['transportation_id']);
+        $untochTransId = Restock::select('transportation_id')->where("id",$data["id"])->get();
+        $status = Transportation::where('id',$untochTransId[0]->transportation_id)->get();
+        $data["transportation_id"] = $untochTransId[0]->transportation_id;
         $asset = Assets::find($data['assets_id']);
+
         if ($data['status'] == "Approved") {
-            $status->is_available = 0;
-            $status->save();
+            $status[0]->is_available = 0;
+            $status[0]->save();
         } else if ($data['status'] == "Closed") {
-            $status->is_available = 1;
-            $status->save();
+            $status[0]->is_available = 1;
+            $status[0]->save();
         } else if ($data['status'] == "Received") {
             // add asset quantity
             $asset->number_of_stocks +=  (int)$data['quantity'];
             $asset->save();
         }
+
         return $data;
     }
 
