@@ -48,6 +48,7 @@
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
             "php artisan clear-compiled",
             "chmod -R 777 public/",
+            "npm install",
             "php artisan optimize"
         ],
         "post-create-project-cmd": [
