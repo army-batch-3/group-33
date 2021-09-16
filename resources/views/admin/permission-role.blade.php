@@ -260,16 +260,16 @@
                 ],
                 select: true,
                 buttons: [
-                    @can('Add Permission')
+                    // @can('Add Permission')
                         { extend: "create", editor: editor },
-                    @endcan('Add Permission')
-                    @can('Edit Permission')
+                    // @endcan('Add Permission')
+                    // @can('Edit Permission')
                         { extend: "edit", editor: editor },
-                    @endcan('Edit Permission')
-                    @can('Delete Permission')
+                    // @endcan('Edit Permission')
+                    // @can('Delete Permission')
                         { extend: "remove", editor: editor },
-                    @endcan('Delete Permission')
-                    @can('Assign Permission')
+                    // @endcan('Delete Permission')
+                    // @can('Assign Permission')
                         {
                         extend: "selectedSingle",
                         text: "Assign Permission",
@@ -280,7 +280,7 @@
                         show_permission(role_id,role_name);
                         }
                         }
-                    @endcan('Assign Permission')
+                    // @endcan('Assign Permission')
                 ],
                 order: [
                     [0, 'asc']
@@ -332,7 +332,7 @@
                 ],
                 select: true,
                 buttons: [
-                    @can('Assign Roles')
+                    // @can('Assign Roles')
                         {
                         extend: "selectedSingle",
                         text: "Assign Role",
@@ -343,7 +343,7 @@
                         show_roles(user_id,user_name);
                         }
                         }
-                    @endcan('Assign Roles')
+                    // @endcan('Assign Roles')
 
                 ],
                 order: [
