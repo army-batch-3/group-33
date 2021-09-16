@@ -23,11 +23,11 @@
                 </li>
                 @endcan
 
-                @can('Roles - Permission')
+                {{-- @can('Roles - Permission') --}}
 				<li id="tabs2">
 					<a class="waves-effect" href="{{ route('permission_role') }}"><i class="menu-icon fa fa-shield"></i><span>Roles & Permissions</span></a>
 				</li>
-				@endcan
+				{{-- @endcan --}}
 
                 @can('Manage Transportation')
 				<li id="tabs2">
