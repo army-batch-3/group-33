@@ -1,3 +1,17 @@
+<style>
+.alert-danger {
+    color: #842029 !important;
+    background-color: #f8d7da !important;
+    border-color: #f5c2c7 !important;
+}
+.alert {
+    position: relative !important;
+    padding: 1rem 1rem !important;
+    margin-bottom: 1rem !important;
+    border: 1px solid transparent !important;
+    border-radius: .25rem !important;
+}
+</style>
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
@@ -11,7 +25,9 @@
                 {{ session('status') }}
             </div>
         @endif
-
+        <div class="alert alert-warning" style="background-color: #f1bec2;">
+            Change https to http on the url before logging in.
+          </div>
         <form method="POST" action="{{ route('login') }}">
             @csrf
 

@@ -260,30 +260,22 @@
                 ],
                 select: true,
                 buttons: [
-                    @can('Add Permission')
                         { extend: "create", editor: editor },
-                    @endcan('Add Permission')
-                    @can('Edit Permission')
                         { extend: "edit", editor: editor },
-                    @endcan('Edit Permission')
-                    @can('Delete Permission')
                         { extend: "remove", editor: editor },
-                    @endcan('Delete Permission')
-                    @can('Assign Permission')
                         {
-                        extend: "selectedSingle",
-                        text: "Assign Permission",
-                        className: 'btn-space permission_btn',
-                        action: function ( e, dt, node, config ) {
-                        let role_id = role_table.row( { selected: true } ).data().id;
-                        let role_name = role_table.row( { selected: true } ).data().name;
-                        show_permission(role_id,role_name);
+                            extend: "selectedSingle",
+                            text: "Assign Permission",
+                            className: 'btn-space permission_btn',
+                            action: function ( e, dt, node, config ) {
+                                let role_id = role_table.row( { selected: true } ).data().id;
+                                let role_name = role_table.row( { selected: true } ).data().name;
+                                show_permission(role_id,role_name);
+                            }
                         }
-                        }
-                    @endcan('Assign Permission')
                 ],
                 order: [
-                    [0, 'asc']
+                    0, 'asc'
                 ],
                 select: {
                     style: 'os',
@@ -332,18 +324,16 @@
                 ],
                 select: true,
                 buttons: [
-                    @can('Assign Roles')
                         {
-                        extend: "selectedSingle",
-                        text: "Assign Role",
-                        className: 'btn-space assign_btn',
-                        action: function ( e, dt, node, config ) {
-                        let user_id = user_table.row( { selected: true } ).data().id;
-                        let user_name = user_table.row( { selected: true } ).data().name;
-                        show_roles(user_id,user_name);
+                            extend: "selectedSingle",
+                            text: "Assign Role",
+                            className: 'btn-space assign_btn',
+                            action: function ( e, dt, node, config ) {
+                                let user_id = user_table.row( { selected: true } ).data().id;
+                                let user_name = user_table.row( { selected: true } ).data().name;
+                                show_roles(user_id,user_name);
+                            }
                         }
-                        }
-                    @endcan('Assign Roles')
 
                 ],
                 order: [
