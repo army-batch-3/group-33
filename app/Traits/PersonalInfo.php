@@ -3,6 +3,7 @@
 namespace App\Traits;
 
 use DB;
+use App\Models\PersonalInfo as ModelsPersonalInfo;
 
 
 trait PersonalInfo
@@ -48,7 +49,9 @@ trait PersonalInfo
 
     public function BasicInfoGet()
     {
-        $data = DB::select("SELECT pi.*, t.Title FROM pa_personalinfo pi, pa_title t where t.id=pi.job_title");
+        $data = ModelsPersonalInfo::join("pa_title","pa_title.id",'=','pa_personalinfo.job_title')->get();
+        // dd($data);
+        // $data = DB::select("SELECT pi.*, t.Title FROM pa_personalinfo pi, pa_title t where t.id=pi.job_title");
         return $data;
     }
 }
