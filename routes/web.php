@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
@@ -50,7 +49,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::post('Personal-Info-Get', [AdminController::class, 'getPersonalinfo'])->name('getPersonalinfo');
     });
 
-    // Route::group(['middleware' => 'can:Roles - Permission',  'middleware' => 'can:Assign Roles'], function () {
+    Route::group(['middleware' => 'can:Roles - Permission',  'middleware' => 'can:Assign Roles'], function () {
         Route::get('Manage-Roles-Permission', [AdminController::class, 'permission_role'])->name('permission_role');
         Route::post('Permission-Get', [AdminController::class, 'getPermission'])->name('getPermission');
         Route::post('Roles-Select-Get', [AdminController::class, 'getRolesAvailable'])->name('getRolesAvailable');
@@ -59,7 +58,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::post('Roles-Store', [AdminController::class, 'storeRole'])->name('storeRole');
         Route::post('Roles-Get', [AdminController::class, 'getRoles'])->name('getRoles');
         Route::post('User-Get', [AdminController::class, 'getLogin'])->name('getLogin');
-    // });
+    });
 
     // Manage Supplier
     Route::group(['middleware' => 'can:Manage Suppliers'], function () {

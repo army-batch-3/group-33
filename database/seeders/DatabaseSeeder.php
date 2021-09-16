@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             TitleSeeder::class,
             PermissionSeeder::class,
             PersonalinfoSeeder::class,
-            // ModelHasRolesSeeder::class,
+            ModelHasRolesSeeder::class,
             EmploymentSeeder::class,
             ReferenceSeeder::class,
             BenefitSeeder::class,
